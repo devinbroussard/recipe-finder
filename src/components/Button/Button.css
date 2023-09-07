@@ -1,0 +1,81 @@
+@import url("../../variables.css");
+
+.button {
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+/* primary */
+.button[data-variant="primary"] {
+  color: var(--light);
+  background-color: var(--primary);
+  border: 2px solid var(--primary-darker-1);
+}
+.button:hover[data-variant="primary"] {
+  background-color: var(--primary-darker-1);
+  border-color: var(--primary-darker-2);
+}
+.button:hover:active[data-variant="primary"] {
+  background-color: var(--primary-darker-3);
+  border-color: var(--primary-darker-3);
+}
+
+/* danger */
+.button[data-variant="danger"] {
+  color: var(--light);
+  background-color: var(--red);
+  border: 2px solid var(--red-darker-1);
+}
+.button:hover[data-variant="danger"] {
+  background-color: var(--red-darker-1);
+  border-color: var(--red-darker-2);
+}
+.button:hover:active[data-variant="danger"] {
+  background-color: var(--red-darker-3);
+  border-color: var(--red-darker-3);
+}
+
+/* dark */
+.button[data-variant="dark"] {
+  color: var(--light);
+  background-color: var(--dark);
+  border: 2px solid var(--dark-lighter-2);
+}
+.button:hover[data-variant="dark"] {
+  background-color: var(--dark-lighter-2);
+  border-color: var(--dark-lighter-3);
+}
+.button:hover:active[data-variant="dark"] {
+  background-color: var(--dark-lighter-4);
+  border-color: var(--dark-lighter-4);
+}
+
+/* light */
+.button[data-variant="light"] {
+  color: var(--dark);
+  background-color: var(--light);
+  border: 2px solid var(--light-darker-1);
+}
+.button:hover[data-variant="light"] {
+  background-color: var(--light-darker-1);
+  border-color: var(--light-darker-2);
+}
+.button:hover:active[data-variant="light"] {
+  background-color: var(--light-darker-3);
+  border-color: var(--light-darker-3);
+}
+
+/* icon */
+.button[data-variant="icon"] {
+  background-color: transparent;
+  color: var(--dark);
+  border: 2px solid transparent;
+}
+.button[data-variant="icon"]:hover {
+  border-color: var(--light);
+}
+.button[data-variant="icon"]:hover:active {
+  background-color: var(--light);
+  border-color: var(--light);
+}

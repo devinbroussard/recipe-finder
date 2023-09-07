@@ -1,0 +1,35 @@
+:root {
+  --primary: rgb(90, 200, 150);
+  --primary-darker-1: rgb(81, 180, 135);
+  --primary-darker-2: rgb(73, 162, 122);
+  --primary-darker-3: rgb(66, 145, 109);
+  --primary-darker-4: rgb(59, 130, 97);
+  --primary-lighter-1: rgb(99, 220, 165);
+  --primary-lighter-2: rgb(109, 242, 182);
+
+  --red: rgb(200, 90, 90);
+  --red-darker-1: rgb(180, 81, 81);
+  --red-darker-2: rgb(162, 73, 73);
+  --red-darker-3: rgb(145, 66, 66);
+  --red-darker-4: rgb(130, 59, 59);
+  --red-lighter-1: rgb(220, 99, 99);
+  --red-lighter-2: rgb(242, 109, 109);
+
+  --dark: rgb(50, 50, 50);
+  --dark-darker-1: rgb(45, 45, 45);
+  --dark-darker-2: rgb(41, 41, 41);
+  --dark-darker-3: rgb(37, 37, 37);
+  --dark-darker-4: rgb(33, 33, 33);
+  --dark-lighter-1: rgb(55, 55, 55);
+  --dark-lighter-2: rgb(61, 61, 61);
+  --dark-lighter-3: rgb(74, 74, 74);
+  --dark-lighter-4: rgb(85, 85, 85);
+
+  --light: rgb(240, 240, 240);
+  --light-darker-1: rgb(216, 216, 216);
+  --light-darker-2: rgb(194, 194, 194);
+  --light-darker-3: rgb(175, 175, 175);
+  --light-darker-4: rgb(157, 157, 157);
+  --light-lighter-1: rgb(250, 250, 250);
+  --light-lighter-2: rgb(255, 255, 255);
+}
