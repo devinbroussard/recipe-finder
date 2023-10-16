@@ -5,7 +5,7 @@ const openAI = new OpenAI({
   dangerouslyAllowBrowser: true
 });
 
-async function postOpenApi(ingredients) {
+async function generateRecipe(ingredients) {
   try {
     const response = await openAI.chat.completions.create({
       messages: [{ role: "user", content: getContent(ingredients) }],
@@ -24,4 +24,4 @@ function getContent(ingredients) {
   return `I'm building a recipe finder app where users input ingredients, and I provide them with a recipe they can make using those ingredients. Please provide a recipe in JSON format with the following keys: name (string), ingredients (string[]), instructions (string[]), and cookTime (string). Ingredients: ${ingredients}`;
 }
 
-export default postOpenApi;
+export default generateRecipe;

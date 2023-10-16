@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import postOpenAIApi from '../api/OpenAIAPI.js';
+import generateRecipe from '../api/OpenAIAPI.js';
 
 export default function RecipeFinder() {
   const [ingredients, setIngredients] = useState('');
@@ -14,7 +14,7 @@ export default function RecipeFinder() {
     event.preventDefault();
 
     try {
-      const response = await postOpenAIApi(ingredients);
+      const response = await generateRecipe(ingredients);
       setRecipe(response);
     } catch (error) {
       console.error('Error:', error);
