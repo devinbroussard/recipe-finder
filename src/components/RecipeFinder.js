@@ -6,11 +6,11 @@ export default function RecipeFinder() {
   const [ingredients, setIngredients] = useState('');
   const [recipe, setRecipe] = useState(null);
 
-  const handleInputChange = (event) => {
+  function handleInputChange(event) {
     setIngredients(event.target.value);
   };
 
-  const handleSubmit = async (event) => {
+  async function handleSubmit(event) {
     event.preventDefault();
 
     try {
@@ -29,6 +29,7 @@ export default function RecipeFinder() {
           placeholder="Enter ingredients"
           value={ingredients}
           onChange={handleInputChange}
+          required
         />
         <button type="submit">Find Recipe</button>
       </form>
