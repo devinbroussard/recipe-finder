@@ -29,6 +29,7 @@ export default function RecipeFinder() {
           placeholder="Enter ingredients"
           value={ingredients}
           onChange={handleInputChange}
+          required
         />
         <button type="submit">Find Recipe</button>
       </form>
