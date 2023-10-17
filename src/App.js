@@ -1,11 +1,21 @@
 import './App.css';
 
-import RecipeFinder from './components/RecipeFinder';
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes
+} from "react-router-dom";
+
+import RecipeFinder from './pages/RecipeFinder';
 
 function App() {
   return (
-   <RecipeFinder />
+    <Router>
+      <Routes>
+        <Route path="/" element={<RecipeFinder />} />
+      </Routes>
+    </Router>
   );
-}
+} 
 
 export default App;
