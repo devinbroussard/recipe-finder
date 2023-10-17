@@ -12,11 +12,13 @@ async function generateRecipe(ingredients) {
       model: "gpt-3.5-turbo",
     });
 
+    if (!response.choices.length)
+      return { error: 'There was an generating the recipe. Please try again.' }
+
     const recipeObject = JSON.parse(response.choices[0].message.content);
     return recipeObject;
   } catch (error) {
-    console.error('Error in postOpenApi:', error);
-    throw error;
+    return { error: `There was an error generating the recipe. Please try again. ${error}`};
   }
 }
 
