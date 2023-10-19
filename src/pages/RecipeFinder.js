@@ -35,7 +35,7 @@ export default function RecipeFinder() {
       </form>
       {recipe && (
         <div>
-          <h2>Recipe</h2>
+          <h1>Recipe</h1>
           <pre>{JSON.stringify(recipe, null, 2)}</pre>
         </div>
       )}
