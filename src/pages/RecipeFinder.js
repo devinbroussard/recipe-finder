@@ -23,13 +23,14 @@ export default function RecipeFinder() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
+      <form style={{display: 'flex', justifyContent: 'center', marginTop: '10rem'}} onSubmit={handleSubmit}>
+        <textarea
           type="text"
           placeholder="Enter ingredients"
           value={ingredients}
           onChange={handleInputChange}
           required
+          style={{width:'30rem', padding:'0.5rem 1rem', borderRadius: '0.25rem', border: '1px solid black', resize: 'none', height: '1rem'}}
         />
         <button type="submit">Find Recipe</button>
       </form>
