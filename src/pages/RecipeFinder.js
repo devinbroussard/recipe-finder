@@ -1,3 +1,5 @@
+import '../styles/RecipeFinder.css'
+
 import React, { useState } from 'react';
 
 import generateRecipe from '../api/OpenAIAPI.js';
@@ -22,16 +24,21 @@ export default function RecipeFinder() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter ingredients"
-          value={ingredients}
-          onChange={handleInputChange}
-          required
-        />
-        <button type="submit">Find Recipe</button>
+    <div style={{display: 'flex', gap: '2rem', flexDirection: 'column', justifyContent: 'center', width: 'auto', alignItems: 'center', height: '100%'}}>
+      <form style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} onSubmit={handleSubmit}>
+        <span className='input-with-btn'>
+          <input
+            type="text"
+            placeholder="Enter ingredients"
+            value={ingredients}
+            onChange={handleInputChange}
+            className='dish-input'
+            required
+          />
+          <button className='find-recipe-btn' disabled={!ingredients} type="submit">
+              Find Recipe
+          </button>
+        </span>
       </form>
       {recipe && (
         <div>

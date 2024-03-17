@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+
+  font-family: "Inter", sans-serif;
+}
+
+#root {
+  height: 100%
 }
