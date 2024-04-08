@@ -24,7 +24,7 @@ export default function RecipeFinder() {
   };
 
   return (
-    <div style={{display: 'flex', gap: '2rem', flexDirection: 'column', justifyContent: 'center', width: 'auto', alignItems: 'center', height: '100%'}}>
+    <div style={{display: 'flex', gap: '2rem', flexDirection: 'column', justifyContent: 'center', width: 'auto', alignItems: 'center', height: '100%'}}> 
       <form style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} onSubmit={handleSubmit}>
         <span className='input-with-btn'>
           <input
@@ -42,8 +42,22 @@ export default function RecipeFinder() {
       </form>
       {recipe && (
         <div>
-          <h1>Recipe</h1>
-          <pre>{JSON.stringify(recipe, null, 2)}</pre>
+          <h1>{recipe.name}</h1>
+
+          <h2>Cook Time</h2>
+          <div>{recipe.cookTime}</div>
+
+          <h2>Ingredients</h2>
+          {recipe.ingredients.map((ingredient, index) => (
+            <li key={index}>{ingredient}</li>
+          ))}
+          
+          <h2>Instructions</h2>
+          <ol style={{paddingLeft: '1rem'}}>
+            {recipe.instructions.map((instruction, index) => (
+              <li key={index}>{instruction}</li>
+            ))}
+          </ol>
         </div>
       )}
     </div>
