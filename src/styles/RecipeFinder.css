@@ -30,7 +30,7 @@
 .find-recipe-btn:disabled {
   color: rgb(230, 228, 228);
   border: 0.1rem solid rgb(160, 159, 159);
-  background-color: rgb(132, 162, 117);
+  background-color: rgb(146, 160, 140);
   cursor: auto;
 }
 
