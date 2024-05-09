@@ -8,6 +8,7 @@ export default function RecipeFinder() {
   const [ingredients, setIngredients] = useState('');
   const [recipe, setRecipe] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   function handleInputChange(event) {
     setIngredients(event.target.value);
@@ -16,12 +17,15 @@ export default function RecipeFinder() {
   async function handleSubmit(event) {
     event.preventDefault();
     setIsLoading(true);
+    setRecipe(null);
+    setError(false);
 
     try {
       const response = await generateRecipe(ingredients);
       setRecipe(response);
     } catch (error) {
       console.error('Error:', error);
+      setError(true);
     } finally {
       setIsLoading(false);
     }
@@ -64,6 +68,11 @@ export default function RecipeFinder() {
           </ol>
         </div>
       )}
+      {
+        error && !isLoading && (
+          <div className='error-msg'>There was an error generating the recipe. Please try again.</div>
+        )
+      }
       {
         isLoading && (
           <div>Loading...</div>
