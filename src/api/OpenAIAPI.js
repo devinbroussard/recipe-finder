@@ -12,11 +12,11 @@ async function generateRecipe(ingredients) {
   });
 
   if (!response.choices.length)
-    throw new Error('There was an generating the recipe. Please try again.');
+    throw new Error('There was an generating error the recipe. Please try again.');
 
   const recipeObject = JSON.parse(response.choices[0].message.content);
   if (!recipeObject.name || !recipeObject.ingredients || !recipeObject.instructions || !recipeObject.cookTime)
-    throw new Error('There was an generating the recipe. Please try again.');
+    throw new Error('There was an error generating the recipe. Please try again.');
 
   return recipeObject;
 }

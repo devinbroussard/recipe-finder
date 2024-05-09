@@ -5,8 +5,6 @@
   &:focus {
     border: 0
   }
-
-  font-family: "Inter", sans-serif;
 }
 
 .dish-input:focus-visible {
@@ -38,17 +36,17 @@
   border: 0.1rem solid rgb(214, 209, 209);
   padding: 0.4rem;
   border-radius: 0.75rem;
+  display: flex;
 }
 
 .container {
+  min-height: 80%;
+  padding-top: 6rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   display: flex;
-  gap: 2rem;
   flex-direction: column;
   justify-content: center;
-  width: auto;
-  align-items: center;
-  min-height: 100%;
-  padding-top: 6rem;
 }
 
 .form {
@@ -58,10 +56,14 @@
 }
 
 .recipe-details {
-  width: 40rem;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  padding-bottom: 2rem;
 }
 
-.ingredient-list-item {
+.list-item {
   margin-bottom: 0.5rem;
 }
 
@@ -69,10 +71,12 @@
   padding-left: 1.25rem;
 }
 
-.instruction-list-item {
-  margin-bottom: 0.75rem;
+.error-message {
+  color: red;
 }
 
-.error-msg {
-  color: red;
+.status-message {
+  margin-top: 3rem;
+  width: 100%;
+  text-align: center;
 }
