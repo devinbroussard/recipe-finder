@@ -10,9 +10,9 @@ export default function RecipeFinder() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const handleInputChange = useCallback((event) => {
+  const handleInputChange = (event) => {
     setIngredients(event.target.value);
-  }, []);
+  };
 
   const handleSubmit = useCallback(async (event) => {
     event.preventDefault();
