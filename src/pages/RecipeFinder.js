@@ -1,6 +1,6 @@
 import '../styles/RecipeFinder.css'
 
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import generateRecipe from '../api/OpenAIAPI.js';
 
@@ -10,11 +10,11 @@ export default function RecipeFinder() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  function handleInputChange(event) {
+  const handleInputChange = useCallback((event) => {
     setIngredients(event.target.value);
-  };
+  }, []);
 
-  async function handleSubmit(event) {
+  const handleSubmit = useCallback(async (event) => {
     event.preventDefault();
     setIsLoading(true);
     setRecipe(null);
@@ -29,7 +29,7 @@ export default function RecipeFinder() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [ingredients]);
 
   return (
     <div className='container'> 
@@ -57,27 +57,30 @@ export default function RecipeFinder() {
 
           <h2>Ingredients</h2>
           {recipe.ingredients.map((ingredient, index) => (
-            <li className='ingredient-list-item' key={index}>{ingredient}</li>
+            <li className='list-item' key={index}>{ingredient}</li>
           ))}
           
           <h2>Instructions</h2>
           <ol className='instructions-list'>
             {recipe.instructions.map((instruction, index) => (
-              <li className='instructions-list-item' key={index}>{instruction}</li>
+              <li className='list-item' key={index}>{instruction}</li>
             ))}
           </ol>
         </div>
       )}
+      <div className='status-message'>
       {
         error && !isLoading && (
-          <div className='error-msg'>There was an error generating the recipe. Please try again.</div>
+          <span className='error-message'>There was an error generating the recipe. Please try again.</span>
         )
       }
       {
         isLoading && (
-          <div>Loading...</div>
+          <span>Loading...</span>
         )
       }
+      </div>
+      
     </div>
   );
 }
