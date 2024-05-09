@@ -47,7 +47,8 @@
   justify-content: center;
   width: auto;
   align-items: center;
-  height: 100%;
+  min-height: 100%;
+  padding-top: 6rem;
 }
 
 .form {
@@ -70,4 +71,8 @@
 
 .instruction-list-item {
   margin-bottom: 0.75rem;
+}
+
+.error-msg {
+  color: red;
 }
