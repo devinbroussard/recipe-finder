@@ -10,7 +10,7 @@ export default function RecipeFinder() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const handleInputChange = (event) => {
+  function handleInputChange(event) {
     setIngredients(event.target.value);
   };
 
