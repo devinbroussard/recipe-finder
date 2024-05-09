@@ -7,6 +7,7 @@ import generateRecipe from '../api/OpenAIAPI.js';
 export default function RecipeFinder() {
   const [ingredients, setIngredients] = useState('');
   const [recipe, setRecipe] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleInputChange(event) {
     setIngredients(event.target.value);
@@ -14,18 +15,21 @@ export default function RecipeFinder() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setIsLoading(true);
 
     try {
       const response = await generateRecipe(ingredients);
       setRecipe(response);
     } catch (error) {
       console.error('Error:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <div style={{display: 'flex', gap: '2rem', flexDirection: 'column', justifyContent: 'center', width: 'auto', alignItems: 'center', height: '100%'}}> 
-      <form style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} onSubmit={handleSubmit}>
+    <div className='container'> 
+      <form className='form' onSubmit={handleSubmit}>
         <span className='input-with-btn'>
           <input
             type="text"
@@ -40,8 +44,8 @@ export default function RecipeFinder() {
           </button>
         </span>
       </form>
-      {recipe && (
-        <div>
+      {recipe && !isLoading && (
+        <div className='recipe-details'>
           <h1>{recipe.name}</h1>
 
           <h2>Cook Time</h2>
@@ -49,17 +53,22 @@ export default function RecipeFinder() {
 
           <h2>Ingredients</h2>
           {recipe.ingredients.map((ingredient, index) => (
-            <li key={index}>{ingredient}</li>
+            <li className='ingredient-list-item' key={index}>{ingredient}</li>
           ))}
           
           <h2>Instructions</h2>
-          <ol style={{paddingLeft: '1rem'}}>
+          <ol className='instructions-list'>
             {recipe.instructions.map((instruction, index) => (
-              <li key={index}>{instruction}</li>
+              <li className='instructions-list-item' key={index}>{instruction}</li>
             ))}
           </ol>
         </div>
       )}
+      {
+        isLoading && (
+          <div>Loading...</div>
+        )
+      }
     </div>
   );
 }

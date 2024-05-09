@@ -39,3 +39,35 @@
   padding: 0.4rem;
   border-radius: 0.75rem;
 }
+
+.container {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  width: auto;
+  align-items: center;
+  height: 100%;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipe-details {
+  width: 40rem;
+}
+
+.ingredient-list-item {
+  margin-bottom: 0.5rem;
+}
+
+.instructions-list {
+  padding-left: 1.25rem;
+}
+
+.instruction-list-item {
+  margin-bottom: 0.75rem;
+}
