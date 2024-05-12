@@ -25,7 +25,7 @@
   color: rgb(230, 228, 228);
   border: 0.1rem solid rgb(160, 159, 159);
   background-color: rgb(146, 160, 140);
-  cursor: auto;
+  pointer-events: none;
 }
 
 .input-with-btn {
@@ -33,6 +33,10 @@
   padding: 0.4rem;
   border-radius: 0.75rem;
   display: flex;
+}
+
+.input-with-btn:focus-within {
+  border-color: rgb(189, 183, 183);
 }
 
 .container {
