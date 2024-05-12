@@ -32,7 +32,6 @@
   border: 0.1rem solid rgb(214, 209, 209);
   padding: 0.4rem;
   border-radius: 0.75rem;
-  display: flex;
 }
 
 .input-with-btn:focus-within {
@@ -42,15 +41,6 @@
 .container {
   min-height: 80%;
   padding: 6rem 1rem 1rem 0rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .recipe-details {
@@ -77,4 +67,20 @@
   margin-top: 3rem;
   width: 100%;
   text-align: center;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+} 
+
+.flex-column {
+  flex-direction: column;
 }
