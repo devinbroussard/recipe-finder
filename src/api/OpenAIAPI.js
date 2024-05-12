@@ -1,29 +1,30 @@
 import { OpenAI } from 'openai';
 
+const ERROR_MESSAGE = 'There was an error generating the recipe. Please try again.';
+
 const openAI = new OpenAI({
   apiKey: process.env.REACT_APP_OPENAI_API_KEY,
   dangerouslyAllowBrowser: true
 });
 
 async function generateRecipe(ingredients) {
-  try {
-    const response = await openAI.chat.completions.create({
-      messages: [{ role: "user", content: getContent(ingredients) }],
-      model: "gpt-3.5-turbo",
-    });
+  const response = await openAI.chat.completions.create({
+    messages: [{ role: "user", content: getContent(ingredients) }],
+    model: "gpt-3.5-turbo",
+  });
 
-    if (!response.choices.length)
-      return { error: 'There was an generating the recipe. Please try again.' }
+  if (!response.choices.length)
+    throw new Error(ERROR_MESSAGE);
 
-    const recipeObject = JSON.parse(response.choices[0].message.content);
-    return recipeObject;
-  } catch (error) {
-    return { error: `There was an error generating the recipe. Please try again. ${error}`};
-  }
+  const recipeObject = JSON.parse(response.choices[0].message.content);
+  if (!recipeObject.name || !recipeObject.ingredients || !recipeObject.instructions || !recipeObject.cookTime)
+    throw new Error(ERROR_MESSAGE);
+
+  return recipeObject;
 }
 
 function getContent(ingredients) {
-  return `I'm building a recipe finder app where users input ingredients, and I provide them with a recipe they can make using those ingredients. Please provide a recipe in JSON format with the following keys: name (string), ingredients (string[]), instructions (string[]), and cookTime (string). Ingredients: ${ingredients}`;
+  return `I’m developing a recipe finder app. Users will input ingredients, and I need to generate a compatible recipe. Please provide the recipe in JSON format with these keys: "name" (string), "ingredients" (string array), "instructions" (string array without numbers), and "cookTime" (string). Use the following ingredients: ${ingredients}.`;
 }
 
 export default generateRecipe;
