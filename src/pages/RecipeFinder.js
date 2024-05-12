@@ -38,9 +38,9 @@ export default function RecipeFinder() {
   }, [ingredients]);
 
   return (
-    <div className='container'> 
-      <form className='form' onSubmit={handleSubmit}>
-        <span className='input-with-btn'>
+    <div className='container d-flex justify-content-center flex-column'> 
+      <form className='d-flex align-items-center justify-content-center' onSubmit={handleSubmit}>
+        <span className='input-with-btn d-flex'>
           <input
             type="text"
             placeholder="Enter ingredients"
