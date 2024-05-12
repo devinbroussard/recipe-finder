@@ -1,6 +1,6 @@
 import '../styles/RecipeFinder.css'
 
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import generateRecipe from '../api/OpenAIAPI.js';
 
@@ -9,10 +9,16 @@ export default function RecipeFinder() {
   const [recipe, setRecipe] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [isInputValid, setIsInputValid] = useState(false);
 
   function handleInputChange(event) {
     setIngredients(event.target.value);
   };
+
+  useEffect(() => {
+    setIsInputValid(ingredients.trim().length > 0);
+  }, [ingredients]);
+
 
   const handleSubmit = useCallback(async (event) => {
     event.preventDefault();
@@ -43,7 +49,7 @@ export default function RecipeFinder() {
             className='dish-input'
             required
           />
-          <button className='find-recipe-btn' disabled={!ingredients} type="submit">
+          <button className='find-recipe-btn' disabled={!isInputValid || isLoading} type="submit">
               Find Recipe
           </button>
         </span>
