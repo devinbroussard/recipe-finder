@@ -15,8 +15,8 @@ body {
   font-family: var(--font-family);
 }
 
-input {
-  font-family: var(--font-family);
+input, button {
+  font-family: inherit;
 }
 
 #root {

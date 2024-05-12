@@ -22,7 +22,7 @@ async function generateRecipe(ingredients) {
 }
 
 function getContent(ingredients) {
-  return `I'm building a recipe finder app where users input ingredients, and I provide them with a recipe they can make using those ingredients. Please provide a recipe in JSON format with the following keys: name (string), ingredients (string[]), instructions (string[]), and cookTime (string). Do not put numbers in the instructions. Ingredients: ${ingredients}`;
+  return `I’m developing a recipe finder app. Users will input ingredients, and I need to generate a compatible recipe. Please provide the recipe in JSON format with these keys: "name" (string), "ingredients" (string array), "instructions" (string array without numbers), and "cookTime" (string). Use the following ingredients: ${ingredients}.`;
 }
 
 export default generateRecipe;
