@@ -1,0 +1,88 @@
+.dish-input {
+  padding: 0.2rem;
+  border: 0;
+  font-size: 1.3rem;
+  &:focus {
+    border: 0
+  }
+}
+
+.dish-input:focus-visible {
+  outline: none;
+}
+
+.find-recipe-btn {
+  font-size: 1.2rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  background-color: rgb(86, 155, 59);
+  color: white;
+  border: 0.1rem solid rgb(214, 209, 209);
+  padding: 0.4rem 0.7rem;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.find-recipe-btn:disabled {
+  color: rgb(230, 228, 228);
+  border: 0.1rem solid rgb(160, 159, 159);
+  background-color: rgb(146, 160, 140);
+  pointer-events: none;
+}
+
+.input-with-btn {
+  border: 0.1rem solid rgb(214, 209, 209);
+  padding: 0.4rem;
+  border-radius: 0.75rem;
+}
+
+.input-with-btn:focus-within {
+  border-color: rgb(189, 183, 183);
+}
+
+.container {
+  min-height: 80%;
+  padding: 6rem 1rem 1rem 0rem;
+}
+
+.recipe-details {
+  max-width: 40rem;
+  margin: 3rem auto;
+  padding-bottom: 2rem;
+}
+
+.list-item {
+  margin-bottom: 0.5rem;
+}
+
+.instructions-list {
+  padding-left: 1.25rem;
+}
+
+.error-message {
+  color: red;
+}
+
+.status-message {
+  margin-top: 3rem;
+  width: 100%;
+  text-align: center;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+} 
+
+.flex-column {
+  flex-direction: column;
+}
