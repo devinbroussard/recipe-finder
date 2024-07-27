@@ -21,6 +21,10 @@
   padding: 0.4rem 0.7rem;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .find-recipe-btn:disabled {
   color: rgb(230, 228, 228);
   border: 0.1rem solid rgb(160, 159, 159);
@@ -45,9 +49,7 @@
 
 .recipe-details {
   max-width: 40rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 3rem;
+  margin: 3rem auto;
   padding-bottom: 2rem;
 }
 

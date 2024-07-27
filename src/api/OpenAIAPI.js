@@ -1,7 +1,5 @@
 import { OpenAI } from 'openai';
 
-const ERROR_MESSAGE = 'There was an error generating the recipe. Please try again.';
-
 const openAI = new OpenAI({
   apiKey: process.env.REACT_APP_OPENAI_API_KEY,
   dangerouslyAllowBrowser: true
@@ -14,11 +12,11 @@ async function generateRecipe(ingredients) {
   });
 
   if (!response.choices.length)
-    throw new Error(ERROR_MESSAGE);
+    throw new Error();
 
   const recipeObject = JSON.parse(response.choices[0].message.content);
   if (!recipeObject.name || !recipeObject.ingredients || !recipeObject.instructions || !recipeObject.cookTime)
-    throw new Error(ERROR_MESSAGE);
+    throw new Error();
 
   return recipeObject;
 }
